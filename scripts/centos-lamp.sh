@@ -20,5 +20,7 @@ sudo apt install mysql-server
 sudo systemctl enable mysql
 
 #Download Starter Content
-
+cd /vagrant
+sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/index.html
+sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/info.php
 sudo systemctl restart apache2
