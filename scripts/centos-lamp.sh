@@ -21,7 +21,7 @@ yum list php-*
 yum install -y php-mysql php-xml php-xmlrpc php-soap php-gd
 # sudo apt install -y php libapache2-mod-php php-mysql
 #install mysql
-sudo rpm -ivh mysql80-community-release-el7-4.noarch.rpm
+yum install -y https://dev.mysql.com/get/yum/mysql80-community-release-el7-4.noarch.rpm
 
 yum install -y mysql-server
 # sudo apt install -y mysql-server
