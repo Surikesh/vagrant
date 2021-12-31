@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-mark hold linux-image-generic linux-headers-generic
-sudo apt-get update
+sudo apt-get update -y
 
 sudo apt-get install -y nano git unzip screen apache2
 sudo systemctl stop apache2
