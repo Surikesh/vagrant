@@ -5,7 +5,7 @@ rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
 #install apache
 
-yum --enablerepo=epel,remi install httpd
+yum --enablerepo=epel,remi install -y httpd
 systemctl enable httpd.service
 
 # sudo apt-get install -y nano git unzip screen apache2
@@ -17,14 +17,14 @@ systemctl start httpd.service
 # sudo apt-mark unhold linux-image-generic linux-headers-generic
 
 # install php
-yum --enablerepo=epel,remi-php74 install php
+yum --enablerepo=epel,remi-php74 install -y php
 yum --enablerepo=remi-php74 list php-*
-yum --enablerepo=remi-php74 install php-mysql php-xml php-xmlrpc php-soap php-gd
+yum --enablerepo=remi-php74 install -y php-mysql php-xml php-xmlrpc php-soap php-gd
 # sudo apt install -y php libapache2-mod-php php-mysql
 
 #install mysql
 rpm -Uvh  https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
-yum install mysql-server
+yum install -y mysql-server
 # sudo apt install -y mysql-server
 systemctl enable mysql
 systemctl start mysqld.service
