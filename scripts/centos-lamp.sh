@@ -7,7 +7,7 @@ sudo yum install -y epel-release
 yum install -y httpd
 systemctl enable httpd.service
 
-# sudo apt-get install -y nano git unzip screen apache2
+sudo yum install -y nano git unzip screen wget
 # sudo systemctl stop apache2
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
@@ -20,8 +20,9 @@ yum install -y php
 yum list php-*
 yum install -y php-mysql php-xml php-xmlrpc php-soap php-gd
 # sudo apt install -y php libapache2-mod-php php-mysql
-
 #install mysql
+sudo rpm -ivh mysql80-community-release-el7-4.noarch.rpm
+
 yum install -y mysql-server
 # sudo apt install -y mysql-server
 systemctl enable mysql
