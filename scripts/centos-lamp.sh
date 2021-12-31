@@ -1,27 +1,35 @@
 #!/bin/bash
 
-# sudo apt-mark hold linux-image-generic linux-headers-generic
-sudo systemctl stop mysql
-sudo apt-get update -y
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-sudo apt-get install -y nano git unzip screen apache2
-sudo systemctl stop apache2
+#install apache
+
+yum --enablerepo=epel,remi install httpd
+systemctl enable httpd.service
+
+# sudo apt-get install -y nano git unzip screen apache2
+# sudo systemctl stop apache2
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
-sudo systemctl start apache2
+systemctl start httpd.service
+# sudo systemctl start apache2
 # sudo apt-mark unhold linux-image-generic linux-headers-generic
 
 # install php
-
+yum --enablerepo=epel,remi-php74 install php
+yum --enablerepo=remi-php74 list php-*
+yum --enablerepo=remi-php74 install php-mysql php-xml php-xmlrpc php-soap php-gd
 # sudo apt install -y php libapache2-mod-php php-mysql
 
 #install mysql
-
+rpm -Uvh  https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+yum install mysql-server
 # sudo apt install -y mysql-server
-sudo systemctl enable mysql
-
+systemctl enable mysql
+systemctl start mysqld.service
 #Download Starter Content
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/info.php
-sudo systemctl restart apache2
+sudo systemctl restart httpd
