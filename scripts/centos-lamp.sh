@@ -1,14 +1,14 @@
 #!/bin/bash
 
-sudo apt-mark hold linux-image-generic linux-headers-generic
-sudo apt-get update -y
+# sudo apt-mark hold linux-image-generic linux-headers-generic
+# sudo apt-get update -y
 
 sudo apt-get install -y nano git unzip screen apache2
 sudo systemctl stop apache2
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
 sudo systemctl start apache2
-sudo apt-mark unhold linux-image-generic linux-headers-generic
+# sudo apt-mark unhold linux-image-generic linux-headers-generic
 
 #install php
 
