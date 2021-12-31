@@ -1,16 +1,17 @@
 #!/bin/bash
 
-# sudo apt-mark hold linux-image-generic linux-headers-generic
-# sudo apt-get update -y
+sudo apt-mark hold linux-image-generic linux-headers-generic
+sudo apt-get update -y
 
 sudo apt-get install -y nano git unzip screen apache2
 sudo systemctl stop apache2
+sudo systemctl stop mysql
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
 sudo systemctl start apache2
-# sudo apt-mark unhold linux-image-generic linux-headers-generic
+sudo apt-mark unhold linux-image-generic linux-headers-generic
 
-#install php
+# install php
 
 sudo apt install -y php libapache2-mod-php php-mysql
 
