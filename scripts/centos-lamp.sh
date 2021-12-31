@@ -1,13 +1,13 @@
 #!/bin/bash
-
-sudo yum install -y epel-release 
+yum update -y --exclude=kernel
+yum install -y epel-release 
 
 #install apache
 
-yum install -y httpd
+yum install -y httpd httpd-devel httpd-tools
 systemctl enable httpd.service
 
-sudo yum install -y nano git unzip screen wget
+yum install -y nano git unzip screen wget
 # sudo systemctl stop apache2
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
