@@ -25,7 +25,7 @@ yum install -y https://dev.mysql.com/get/yum/mysql80-community-release-el7-4.noa
 
 yum install -y mysql-server
 # sudo apt install -y mysql-server
-systemctl enable mysql
+systemctl enable mysqld
 systemctl start mysqld.service
 #Download Starter Content
 cd /vagrant
