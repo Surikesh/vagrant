@@ -13,7 +13,7 @@ sudo apt-mark unhold linux-image-generic linux-headers-generic
 
 # install php
 
-sudo apt install -y php libapache2-mod-php php-mysql
+# sudo apt install -y php libapache2-mod-php php-mysql
 
 #install mysql
 
