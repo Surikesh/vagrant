@@ -4,22 +4,22 @@ yum install -y epel-release
 
 #install apache
 
-yum install -y apache2
-systemctl enable apache2.service
+yum install -y httpd
+systemctl enable httpd.service
 
 yum install -y nano git unzip screen wget
-# sudo systemctl stop apache2
+# sudo systemctl stop httpd
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
-systemctl start apache2.service
-# sudo systemctl start apache2
+systemctl start httpd.service
+# sudo systemctl start httpd
 # sudo apt-mark unhold linux-image-generic linux-headers-generic
 
 # install php
 yum install -y php
 yum list php-*
 yum install -y php-mysql php-xml php-xmlrpc php-soap php-gd
-# sudo apt install -y php libapache2-mod-php php-mysql
+# sudo apt install -y php libhttpd-mod-php php-mysql
 #install mysql
 yum install -y https://dev.mysql.com/get/yum/mysql80-community-release-el7-4.noarch.rpm
 
@@ -31,4 +31,4 @@ systemctl start mysqld.service
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/info.php
-sudo systemctl restart apache2
+sudo systemctl restart httpd
