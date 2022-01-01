@@ -4,14 +4,14 @@ yum install -y epel-release
 
 #install apache
 
-yum install -y httpd httpd-devel httpd-tools
-systemctl enable httpd.service
+yum install -y apache2
+systemctl enable apache2.service
 
 yum install -y nano git unzip screen wget
 # sudo systemctl stop apache2
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
-systemctl start httpd.service
+systemctl start apache2.service
 # sudo systemctl start apache2
 # sudo apt-mark unhold linux-image-generic linux-headers-generic
 
@@ -31,4 +31,4 @@ systemctl start mysqld.service
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/Surikesh/vagrant/main/files/info.php
-sudo systemctl restart httpd
+sudo systemctl restart apache2
